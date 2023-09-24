@@ -7,20 +7,19 @@
     android:padding="40dp"
     android:background="@drawable/screen"
     android:orientation="vertical"
-    tools:context=".LoginActivity"
-    tools:viewBindingIgnore="true" >
+    tools:context=".RegisterActivity">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="25dp"
         android:textStyle="bold"
-        android:text="Welcome Back!"
+        android:text="Hello!"
         android:textColor="@color/white" />
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Log in!"
+        android:text="Sign Up!"
         android:textSize="50dp"
         android:textStyle="bold"
         android:textColor="@color/white" />
@@ -37,34 +36,34 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Email or UserName"
-            android:inputType="textEmailAddress" />
+            android:inputType="textEmailAddress"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@id/password"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        app:passwordToggleEnabled="true">
+        app:passwordToggleEnabled="true"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Password"
-            android:inputType="textPassword" />
+            android:inputType="textPassword"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 
 
 
     <Button
-        android:id="@+id/login"
+        android:id="@+id/sign_up"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textStyle="bold"
-        android:text="Sign in"
+        android:text="Sign Up"
         android:textSize="20dp"
         android:layout_marginTop="90dp"
         android:background="@drawable/round_btn"
@@ -82,14 +81,15 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Don't have an account?"
+            android:text="Already have an account?"
             android:textSize="15dp"
             android:textStyle="bold"/>
 
         <TextView
+            android:id="@+id/sign_in"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Sign Up!"
+            android:text="Sign In!"
             android:textColor="@color/blue"
             android:textSize="15dp"
             android:textStyle="bold"
@@ -97,35 +97,4 @@
             />
 
     </LinearLayout>
-
-
-
 </LinearLayout>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
