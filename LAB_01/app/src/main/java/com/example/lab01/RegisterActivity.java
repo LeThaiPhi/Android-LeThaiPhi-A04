@@ -19,7 +19,8 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class RegisterActivity extends AppCompatActivity {
 
-    TextInputEditText editTextEmail, editTextPassword;
+
+    TextInputEditText editTextEmail, editTextPassword, editTextUserName ;
     Button signUp;
     TextView signIn;
     FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
@@ -27,7 +28,7 @@ public class RegisterActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-
+        editTextUserName = findViewById(R.id.user);
         editTextEmail= findViewById(R.id.email);
         editTextPassword = findViewById(R.id.password);
         signIn = findViewById(R.id.sign_in);
@@ -43,9 +44,15 @@ public class RegisterActivity extends AppCompatActivity {
         signUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String email,password;
+                String email,password,user;
+                user = String.valueOf(editTextUserName.getText());
                 email = String.valueOf(editTextEmail.getText());
                 password = String.valueOf(editTextPassword.getText());
+                if (TextUtils.isEmpty(user))
+                {
+                    Toast.makeText(RegisterActivity.this, "Enter User!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 if (TextUtils.isEmpty(email))
                 {
                     Toast.makeText(RegisterActivity.this, "Enter Email!", Toast.LENGTH_SHORT).show();
@@ -56,6 +63,7 @@ public class RegisterActivity extends AppCompatActivity {
                     Toast.makeText(RegisterActivity.this, "Enter Password!", Toast.LENGTH_SHORT).show();
                     return;
                 }
+
                 firebaseAuth.createUserWithEmailAndPassword(email , password)
                         .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                             @Override

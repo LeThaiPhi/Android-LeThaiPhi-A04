@@ -8,10 +8,16 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.firebase.auth.FirebaseAuth;
+
 public class HomeActivity extends AppCompatActivity {
 
+    TextInputEditText editTextUserName ;
     Button signOut;
-    TextView signUp;
+
+    FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,11 +29,14 @@ public class HomeActivity extends AppCompatActivity {
         {
             @Override
             public void onClick(View v) {
+
                 Intent intent= new Intent(HomeActivity.this, MainActivity.class);
                 startActivity(intent);
                 finish();
             }
+
         });
+
     }
 
 }
